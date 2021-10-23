@@ -22,7 +22,7 @@ axios.interceptors.response.use(async response => {
         case 400:
             if (typeof data === 'string') {
                 toast.error(data);
-            } else if (config.method == 'get' && data.errors.hasOwnProperty('id')) {
+            } else if (config.method === 'get' && data.errors.hasOwnProperty('id')) {
                 history.push('/not-found');
             } else if (data.errors) {
                 const modelStateErrors = [];
